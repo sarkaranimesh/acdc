@@ -37,8 +37,10 @@ VehicleController *vehicle_controller = nullptr;
  */
 void callbackLaserSensor(const sensor_msgs::LaserScanPtr &msg) {
   // START TASK 2 CODE
-
-
+  ROS_INFO("Lidar message received:");
+  for (int i=0;i<5;i++ ){
+    ROS_INFO("Range[%d]: %f",i, msg->ranges[i]);
+  }
 
   // END TASK 2 CODE
 
@@ -97,9 +99,14 @@ int main(int argc, char* argv[]) {
   ROS_INFO("Vehicle controller is running...");
 
   // START TASK 1 CODE
+  // ros::Rate rate(0.05);// 1/20ms = 0.05Hz
+  // while (ros::ok()){
+  //   ros::spinOnce();
+  //   rate.sleep()
+  // }
 
 
-  ros::spin();
+ ros::spin();
 
 
   // END TASK 1 CODE

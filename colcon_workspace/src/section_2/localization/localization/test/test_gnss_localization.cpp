@@ -17,17 +17,17 @@ namespace localization {
 bool projectToUTM(const double& latitude, const double& longitude, geometry_msgs::msg::PointStamped& utm_point)
 {
   try {
-    // PASTE TASK 2 CODE HERE
- 
-
-
-
+    // START TASK 2 CODE HERE
+    int zone;
+    bool northp;
+    utm_point.header.frame_id="utm";
+    GeographicLib::UTMUPS::Forward(latitude, longitude, zone, northp, utm_point.point.x, utm_point.point.y);
     // return true if succesful
-    return false;
-    // PASTE TASK 2 CODE HERE
+    return true;
+    // END TASK 2 CODE HERE
   } catch (GeographicLib::GeographicErr& e) {
     std::cout << "Tranformation from WGS84 to UTM failed: " << e.what() << std::endl;
-    return false;
+        return false;
   }
 }
 

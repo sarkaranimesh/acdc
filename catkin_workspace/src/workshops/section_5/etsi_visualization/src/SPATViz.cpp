@@ -56,8 +56,8 @@ void ETSIViz::SPATCallback(const definitions::v2x_SPAT& msg) {
 
             // ### START CODE HERE ###
             sg.current_state = spat_intsctn.states[m].state_time_speed[0].eventState; // Get first element of state_time_speed
-            sg.sg_id = 0; // Task
-            sg.next_change = 0; // Task
+            sg.sg_id = spat_intsctn.states[m].signalGroup; // Task
+            sg.next_change = spat_intscn[m].state_time_speed[0].timing_likelyTime; // Task
             // ### END CODE HERE ###
 
             spatviz.sgs.push_back(sg);
@@ -130,9 +130,75 @@ visualization_msgs::Marker ETSIViz::SG2Sphere(const geometry_msgs::Point pt, con
     // Set marker color depending on signal group state
     // The signal group state is given by the function variable "state"
     // hint: you can use an if (or switch) condition
-    marker.color.r = 0.0; // Task
+    // marker.color.r = 0.0; // Task
+    // marker.color.g = 0.0; // Task
+    // marker.color.b = 0.0; // Task
+    switch (state)
+    {
+    case 0:
+            marker.color.r = 0.1; // Task
+            marker.color.g = 0.1; // Task
+            marker.color.b = 0.1; // Task
+        break;
+    case 1:
+        marker.color.r = 0.1; // Task
+        marker.color.g = 0.1; // Task
+        marker.color.b = 0.1; // Task
+    break;
+
+    case 2:
+    marker.color.r = 1.0; // Task
     marker.color.g = 0.0; // Task
     marker.color.b = 0.0; // Task
+    break;
+    case 3:
+    marker.color.r = 1.0; // Task
+    marker.color.g = 0.0; // Task
+    marker.color.b = 0.0; // Task
+    break;
+
+    case 4:
+    marker.color.r = 1.0; // Task
+    marker.color.g = 1.0; // Task
+    marker.color.b = 0.0; // Task
+    break;
+
+    case 5:
+    marker.color.r = 0.0; // Task
+    marker.color.g = 1.0; // Task
+    marker.color.b = 0.0; // Task
+    break;
+    case 6:
+    marker.color.r = 0.0; // Task
+    marker.color.g = 1.0; // Task
+    marker.color.b = 0.0; // Task
+    break;
+
+    case 7:
+    marker.color.r = 1.0; // Task
+    marker.color.g = 1.0; // Task
+    marker.color.b = 0.0; // Task
+    break;
+
+    case 8:
+    marker.color.r = 1.0; // Task
+    marker.color.g = 1.0; // Task
+    marker.color.b = 0.0; // Task
+    break;
+
+    case 9:
+    marker.color.r = 1.0; // Task
+    marker.color.g = 1.0; // Task
+    marker.color.b = 0.0; // Task
+    break;
+
+    default:
+    marker.color.r = 0.1; // Task
+    marker.color.g = 0.1; // Task
+    marker.color.b = 0.1; // Task  
+
+        break;
+    }
     // ### END CODE HERE ###
 
 

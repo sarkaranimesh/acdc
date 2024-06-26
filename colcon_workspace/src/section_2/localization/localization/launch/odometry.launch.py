@@ -38,7 +38,7 @@ def generate_launch_description():
             executable='odometry_node',
             output="screen",
             # START TASK 1 CODE HERE
-            remappings=[('pointcloud_topic', '/my_pcl_topic')],
+            remappings=[('pointcloud_topic', '/lidar/pointcloud')],
             parameters=[{
                     'publish_alias_tf': False,
                     'publish_odom_tf': True,
@@ -49,7 +49,7 @@ def generate_launch_description():
                     'deskew': False,
                     'max_points_per_voxel': 20,
                     'initial_threshold': 2.0,
-                    'min_motion_th': 0.01,
+                    'min_motion_th': 0.1,
             }],
             # END TASK 1 CODE HERE
             name='lidar_odometry_node'),

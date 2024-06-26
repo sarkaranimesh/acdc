@@ -195,7 +195,10 @@ namespace lidar_detection
           // set class_idx and score
           // START TASK 2 CODE   
 
-          int class_idx = -1;
+// std::vector<float>::iterator it_max = std::max_element(class_scores.begin(), class_scores.end());
+// int class_idx = distance(class_scores.begin(), it_max);
+          std::vector <float> :: iterator it_max = std::max_element(class_scores.begin(), class_scores.end());
+          int class_idx = distance(class_scores.begin(), it_max);
 
           // END TASK 2 CODE   
 

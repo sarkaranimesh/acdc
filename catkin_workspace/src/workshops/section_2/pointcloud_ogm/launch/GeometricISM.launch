@@ -9,8 +9,8 @@
     <rosparam>
       filter_limit_negative: False
       filter_field_name: x
-      filter_limit_min: -50
-      filter_limit_max: 50
+      filter_limit_min: -1000
+      filter_limit_max: 1000
     </rosparam>
   </node>
 

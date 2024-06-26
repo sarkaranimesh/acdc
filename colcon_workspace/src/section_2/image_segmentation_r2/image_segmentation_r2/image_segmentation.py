@@ -131,11 +131,12 @@ class ImageSegmentation(Node):
         
         # Task 1:
         # Replace the following command
-        rgb_encoding = np.random.randint(
-            low=0,
-            high=255,
-            size=[self.resize_height, self.resize_width, 3]
-        )
+        rgb_encoding = np.zeros((segmentation_map.shape[0],segmentation_map.shape[1],3),dtype = np.uint8)
+        
+        for class_id,class_name in enumerate(self.class_names):
+            class_rgb = self.color_palette[class_id]
+            mask = segmentation_map == class_id
+            rgb_encoding[mask] = class_rgb
 
         ### END CODE HERE ###
 

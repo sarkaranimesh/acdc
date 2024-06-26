@@ -77,6 +77,15 @@ void GeometricISM::messageCallback(const PointCloud::ConstPtr& pointcloud) {
       double p_ism;
       // TASK 2 BEGIN
       // ADD YOUR CODE HERE...
+      if(cell == 0)
+        p_ism = 0.9;
+      else if (cell ==1)
+        p_ism = 0.8;
+      else if (cell == 2)
+        p_ism = 0.5;
+      else
+        p_ism = 0.1;
+
 
       // TASK 2 END
       
